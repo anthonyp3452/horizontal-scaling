@@ -7,6 +7,14 @@ services:
       - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - web
+    deploy:
+      resources:
+        limits:
+          cpus: '1.00'
+          memory: 512M
+        reservations:
+          cpus: '0.50'
+          memory: 256M
 
   web:
     build:
